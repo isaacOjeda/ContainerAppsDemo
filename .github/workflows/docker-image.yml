@@ -13,6 +13,23 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
-    - name: Build the Docker image
+    - name: 'Checkout'
+      uses: actions/checkout@v3
+
+    - name: 'Build the Docker image'
       run: docker build --tag containerappsdemo:latest -f "./ContainerAppsDemo/ContainerAppsDemo/Dockerfile"  "./ContainerAppsDemo"
+
+    - name: 'Login Azure Container Registry'
+      uses: docker/login-action
+      with:
+        registry: balusoft.azurecr.io
+        username: ${{ REGISTRY_USERNAME }}
+        password: ${{ REGISTRY_PASSWORD }}
+
+    - name: 'Tag docker image'
+      run: docker tag containerappsdemo:latest balusoft.azurecr.io/containerappsdemo:latest
+
+    - name: 'Push docker image'
+      run: docker image push balusoft.azurecr.io/containerappsdemo:latest
+
+
