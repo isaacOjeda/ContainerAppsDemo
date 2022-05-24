@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "lJT/WvkQ9AnoewJWqsMP2t3z9X7avV7mQt/PlGQG/0ayZVII7Y9CsnVahmTGmqFq7tpxXPmaaWb0tSlFb3o/YQ==",
+  "success": true,
+  "projectFilePath": "C:\\Working\\Github\\ContainerAppsDemo\\ContainerAppsDemo\\ContainerAppsDemo\\ContainerAppsDemo.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\isaac.ojeda\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.15.1\\microsoft.visualstudio.azure.containers.tools.targets.1.15.1.nupkg.sha512"
+  ],
+  "logs": []
+}
