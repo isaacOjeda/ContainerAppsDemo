@@ -1,13 +1,13 @@
 {
   "profiles": {
-    "ContainerAppsDemo": {
+    "ContainerAppsDemo.Api": {
       "commandName": "Project",
       "launchBrowser": true,
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
-      "applicationUrl": "https://localhost:7003;http://localhost:7002",
-      "dotnetRunMessages": true
+      "dotnetRunMessages": true,
+      "applicationUrl": "https://localhost:7001;http://localhost:7000"
     },
     "Docker": {
       "commandName": "Docker",

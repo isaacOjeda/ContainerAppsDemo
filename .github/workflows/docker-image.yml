@@ -7,7 +7,7 @@ on:
     branches: [master]
 
 jobs:
-  build:
+  build-web:
     runs-on: ubuntu-latest
 
     steps:
@@ -29,3 +29,26 @@ jobs:
 
       - name: "Push docker image"
         run: docker image push balusoft.azurecr.io/containerappsdemo:latest
+
+  build-api:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: "Checkout"
+        uses: actions/checkout@v3
+
+      - name: "Build the Docker image"
+        run: docker build --tag containerappsdemoapi:latest -f "./ContainerAppsDemo/ContainerAppsDemo.Api/Dockerfile"  "./ContainerAppsDemo.Api"
+
+      - name: "Login Azure Container Registry"
+        uses: docker/login-action@v2.0.0
+        with:
+          registry: balusoft.azurecr.io
+          username: ${{ secrets.REGISTRY_USERNAME }}
+          password: ${{ secrets.REGISTRY_PASSWORD }}
+
+      - name: "Tag docker image"
+        run: docker tag containerappsdemoapi:latest balusoft.azurecr.io/containerappsdemoapi:latest
+
+      - name: "Push docker image"
+        run: docker image push balusoft.azurecr.io/containerappsdemoapi:latest
