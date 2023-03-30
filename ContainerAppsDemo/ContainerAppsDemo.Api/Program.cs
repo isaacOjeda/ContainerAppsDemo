@@ -26,6 +26,8 @@ async Task Seed()
     var db = scope.ServiceProvider.GetRequiredService<ApiDbContext>();
 
 
+    await db.Database.EnsureCreatedAsync();
+
     if (!await db.Products.AnyAsync())
     {
         foreach (var i in Enumerable.Range(1, 100))
