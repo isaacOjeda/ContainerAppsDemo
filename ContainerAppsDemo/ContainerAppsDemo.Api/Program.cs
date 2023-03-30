@@ -8,7 +8,7 @@ builder.Services.AddSqlServer<ApiDbContext>(builder.Configuration.GetConnectionS
 
 var app = builder.Build();
 
-app.MapGet("/", () => "Hello World!");
+app.MapGet("/", () => "Container Apps Demo API");
 
 app.MapGet("/api/products", (ApiDbContext context) =>
     context.Products.ToListAsync()
