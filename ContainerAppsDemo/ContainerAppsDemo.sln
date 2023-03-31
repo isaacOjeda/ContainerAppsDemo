@@ -5,7 +5,7 @@ VisualStudioVersion = 17.2.32516.85
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ContainerAppsDemo", "ContainerAppsDemo\ContainerAppsDemo.csproj", "{0CB89BBF-7FF3-486C-A0B0-832CA8A32678}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContainerAppsDemo.Api", "ContainerAppsDemo.Api\ContainerAppsDemo.Api.csproj", "{D9885842-B7CF-4E04-BFBA-FAB0C396A92F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ContainerAppsDemo.Api", "ContainerAppsDemo.Api\ContainerAppsDemo.Api.csproj", "{D9885842-B7CF-4E04-BFBA-FAB0C396A92F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
