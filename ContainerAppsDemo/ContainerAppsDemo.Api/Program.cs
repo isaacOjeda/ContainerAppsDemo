@@ -8,7 +8,6 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddSqlServer<ApiDbContext>(builder.Configuration.GetConnectionString("Default"));
 builder.Services.AddTransient<ICurrencyProvider, BanxicoService>();
-
 builder.Services.AddHttpClient("Banxico", config =>
 {
     config.BaseAddress = new Uri("https://www.banxico.org.mx");
@@ -20,15 +19,12 @@ app.UseExceptionHandler(exceptionHandlerApp
     => exceptionHandlerApp.Run(async context
         => await Results.Problem()
                      .ExecuteAsync(context)));
-
 app.MapGet("/", () => "Container Apps Demo API");
-
 app.MapGet("/api/products", (ApiDbContext context) =>
     context.Products.ToListAsync()
 );
-
-app.MapGet("/api/banxico", async (ICurrencyProvider banxico) =>
-    await banxico.GetDollarValue()
+app.MapGet("/api/banxico", (ICurrencyProvider banxico) =>
+    banxico.GetDollarValue()
 );
 
 await Seed();

@@ -6,12 +6,10 @@ public class IndexModel : PageModel
     private readonly ILogger<IndexModel> _logger;
     private readonly HttpClient _client;
 
-    public IndexModel(ILogger<IndexModel> logger, HttpClient client, IConfiguration config)
+    public IndexModel(ILogger<IndexModel> logger, IHttpClientFactory httpClientFactory)
     {
         _logger = logger;
-        _client = client;
-
-        _client.BaseAddress = new Uri(config["ApiHost"]);
+        _client = httpClientFactory.CreateClient("MyApi");
     }
 
     public List<ProductDto> Products { get; set; } = new();

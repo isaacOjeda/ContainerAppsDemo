@@ -7,10 +7,9 @@ namespace ContainerAppsDemo.Pages
     {
         private readonly HttpClient _httpClient;
 
-        public CurrencyModel(HttpClient httpClient, IConfiguration config)
+        public CurrencyModel(IHttpClientFactory httpClientFactory)
         {
-            _httpClient = httpClient;
-            _httpClient.BaseAddress = new Uri(config["ApiHost"]);
+            _httpClient = httpClientFactory.CreateClient("MyApi");
         }
 
         public string Title { get; set; }
